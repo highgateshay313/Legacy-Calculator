@@ -16,7 +16,15 @@ let operator = "";
 
 
 
-
+numbers.forEach(btn => 
+    btn.addEventListener("click", (e) => {
+        firstNum = e.target.innerHTML;
+        let para = document.createElement("h3");
+        para.textContent = firstNum;
+        outputBox.appendChild(para);
+        
+        
+    }));
 
 
 
@@ -29,15 +37,9 @@ let operator = "";
         op.textContent = value;
         op.style.color = "white"
         OutPut2.appendChild(op);
-    })
-)
+    }))
 
-    numbers.forEach(btn => 
-    btn.addEventListener("click", (e) => {
-        value = e.target.innerHTML;
-        Output1.textContent = value; 
-        
-    }));
+  
 
     clear.addEventListener("click", () => {
         let cleared = "";

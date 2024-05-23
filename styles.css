@@ -6,7 +6,7 @@
 body {
 
     width: 100%;
-    background: black;
+    background: rgb(254, 253, 253);
     background-size: cover;
 }
 
@@ -84,9 +84,11 @@ main {
 
 .output {
     display: flex;
-    align-items: center;
     margin: 30px auto;
     width: 80%;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 2rem;
     height: 130px;
     background: rgb(0, 0, 0);
     border-radius: 10px;
@@ -97,10 +99,10 @@ main {
 .output1 {
     display: flex;
     justify-content: flex-end;
-    height: 50px;
-    align-items: center;
+    height: 20px;
     width: 100%;
     color: aqua;
+    font-size: 2rem;
 }
 
 .orange {
