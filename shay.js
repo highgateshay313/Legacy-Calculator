@@ -28,20 +28,20 @@ let operator = "";
         op.style.display = "inline"
         op.textContent = value;
         op.style.color = "white"
-        OutPut2.appendChild(op)
+        OutPut2.appendChild(op);
     })
 )
 
     numbers.forEach(btn => 
     btn.addEventListener("click", (e) => {
         value = e.target.innerHTML;
-        outputBox.textContent = value; 
+        Output1.textContent = value; 
         
     }));
 
     clear.addEventListener("click", () => {
         let cleared = "";
-        outputBox.textContent = cleared;
+        Output1.textContent = cleared;
     })
 
  

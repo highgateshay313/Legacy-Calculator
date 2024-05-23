@@ -25,9 +25,9 @@ main {
     margin: 5px auto;
     text-align: center;
     font-size: 3rem;
-    font-family:Verdana, Geneva, Tahoma, sans-serif
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bolder;
-    color:rgb(13, 241, 245);
+    color: rgb(13, 241, 245);
     background: url(images/abstract-1850424_640.jpg);
     border-radius: 20px;
     box-shadow: 10px 5px 5px black;
@@ -84,22 +84,29 @@ main {
 
 .output {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    width: 100%;
+    margin: 30px auto;
+    width: 80%;
     height: 130px;
     background: rgb(0, 0, 0);
-    margin: 20px;
     border-radius: 10px;
     color: aqua;
-    font-size: 2rem;
     padding: 0 15px;
 }
 
-.orange {
-    background: rgb(36, 219, 216);
-    
+.output1 {
+    display: flex;
+    justify-content: flex-end;
+    height: 50px;
+    align-items: center;
+    width: 100%;
+    color: aqua;
 }
+
+.orange {
+    background: aqua;
+}
+
 
 .allClear {
     background: black;
