@@ -6,7 +6,7 @@
 body {
 
     width: 100%;
-    background: url(images/school-938760_1280.jpg);
+    background: black;
     background-size: cover;
 }
 
@@ -14,17 +14,31 @@ main {
     display: flex;
     width: 500px;
     margin: 200px auto;
-    background: rgb(90, 88, 88);
+    background: rgb(66, 64, 64);
     border-radius: 20px;
     align-items: center;
     justify-content: center;
 }
 
+.title {
+    width: 60%;
+    margin: 5px auto;
+    text-align: center;
+    font-size: 3rem;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+    font-weight: bolder;
+    color:rgb(13, 241, 245);
+    background: url(images/abstract-1850424_640.jpg);
+    border-radius: 20px;
+    box-shadow: 10px 5px 5px black;
+    
+}
+
 .calBody {
     
     width: 100%;
-    height: 570px;
-    margin: 40px auto;
+    height: 650px;
+    margin: 30px auto;
 }
 
 .calBody h2 {
@@ -70,11 +84,16 @@ main {
 
 .output {
     display: flex;
+    justify-content: flex-end;
+    align-items: center;
     width: 100%;
     height: 130px;
-    background: white;
+    background: rgb(0, 0, 0);
     margin: 20px;
     border-radius: 10px;
+    color: aqua;
+    font-size: 2rem;
+    padding: 0 15px;
 }
 
 .orange {
