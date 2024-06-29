@@ -1,77 +1,99 @@
 
-const numbers = document.querySelectorAll(".numberBtn");
-const Operate = document.querySelectorAll(".orange");
+
+
+const numbers = document.querySelectorAll(".digit");
+const Operator = document.querySelectorAll(".op");
 const outputBox = document.querySelector(".output");
-const Output1 = document.querySelector(".output1");
-const OutPut2 = document.querySelector(".output2");
 const clear = document.querySelector(".allClear");
-
-let firstNum = "";
-let secondNum = "";
-let operator = "";
-
-
-
-
+const back = document.querySelector(".backspace");
+const Plus = document.querySelector(".plusSign");
+const sum = document.querySelector(".equals");
+// const first = document.querySelector(".first");
+// const second = document.querySelector(".second");
+const choice = document.querySelector(".choice-display")
 
 
 
-numbers.forEach(btn => 
-    btn.addEventListener("click", (e) => {
-        firstNum = e.target.innerHTML;
-        let para = document.createElement("h3");
-        para.textContent = firstNum;
-        outputBox.appendChild(para);
-        
-        
-    }));
+const input = document.querySelector(".numberInput");
+const para = document.querySelector("p");
 
 
 
 
-    Operate.forEach(btn => 
-    btn.addEventListener("click", (e) => {
-        value = e.target.innerHTML;
-        const op = document.createElement("h3");
-        op.style.display = "inline"
-        op.textContent = value;
-        op.style.color = "white"
-        OutPut2.appendChild(op);
-    }))
+const add = (num1, num2) => {
+    return num1 + num2;
+};
 
-  
+const subtract = (num1, num2) => {
+    return num1 - num2;
+};
 
-    clear.addEventListener("click", () => {
-        let cleared = "";
-        Output1.textContent = cleared;
-    })
+const times = (num1, num2) => {
+    return num1 * num2;
+};
 
+const divide = (num1, num2) => {
+    return num1 / num2;
+};
+
+const percent = (num1, num2) => {
+    return (num1 / num2) *100;
+};
+
+//Switch statment for operators
+let first = 0;
+let second = 0;
+let operators = "";
+
+function firstNum(firstNumber) {
+   let firstValue = parseFloat(firstNumber.target.value);
+    first = firstValue;
+    outputBox.textContent = first;
+    return first;
+}
+
+function secondNum(secondNumber) {
+   let secondValue = parseFloat(secondNumber.target.value);
+    second = secondValue;
+    outputBox.textContent = second;
+    outputBox.style.colot = "red"
+    return second;
+}
+
+function opSign(sign) {
+    let opValue = sign.target.value;
+    operators = opValue;
+    outputBox.textContent = operators;
+    outputBox.style.color = "white"
+    return operators;
+    
+}
+
+function operation(firstOperand, secondOperand, op) {
  
-    function add(a, b) {
-    return a + b;
- };
+}
 
-    function subtraction(a, b) {
-    return a - b;
- };
 
-    function multiply(a, b) {
-    return a * b;
- };
 
-    function divide(a, b) {
-    return a / b;
- };
+//Event for number buttons
+numbers.forEach((numberBtn) => {
+    numberBtn.addEventListener("click", firstNum);
+    console.log(first)
+});
 
- function percentage(a, b) {
-    return (a/b) * 100;
- };
+
+//Event for operator buttons
+Operator.forEach((opBtn) => {
+    opBtn.addEventListener("click", opSign);
+});
 
 
 
 
 
 
+
+//Math functions
 
 
 

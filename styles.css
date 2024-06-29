@@ -14,7 +14,7 @@ main {
     display: flex;
     width: 500px;
     margin: 200px auto;
-    background: rgb(66, 64, 64);
+    background: rgb(84, 88, 103);
     border-radius: 20px;
     align-items: center;
     justify-content: center;
@@ -59,8 +59,8 @@ main {
 
 .numberLine {
     display: flex;
-    width: 70px;
-    height: 50px;
+    width: 90px;
+    height: 70px;
     padding: 5px;
     margin: 5px;
     border: 2px solid black;
@@ -68,9 +68,11 @@ main {
     align-items: center;
     justify-content: center;
     color: rgb(4, 4, 4);
+    font-size: 1.3rem;
     font-weight: bold;
     background: white;
     box-shadow: 10px 5px 5px black;
+
 }
 
 .numberLine:hover {
@@ -78,7 +80,7 @@ main {
 }
 
 .numbers .equals{
-    background: rgb(103, 103, 108);
+    background: rgb(117, 117, 136);
     color: white;
 }
 
@@ -89,14 +91,14 @@ main {
     justify-content: flex-end;
     align-items: center;
     font-size: 2rem;
-    height: 130px;
+    height: 100px;
     background: rgb(0, 0, 0);
     border-radius: 10px;
     color: aqua;
     padding: 0 15px;
 }
 
-.output1 {
+.output .first {
     display: flex;
     justify-content: flex-end;
     height: 20px;
