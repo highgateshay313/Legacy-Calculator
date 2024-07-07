@@ -107,6 +107,19 @@ main {
     font-size: 2rem;
 }
 
+.firstOperand {
+    display: flex;
+    justify-content: flex-end;
+    height: 20px;
+    width: 100%;
+    color: aqua;
+    font-size: 2rem;
+}
+
+.secondOperand {
+    width: 100%;
+}
+
 .orange {
     background: aqua;
 }

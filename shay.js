@@ -1,22 +1,16 @@
 
 
 
-const numbers = document.querySelectorAll(".digit");
-const Operator = document.querySelectorAll(".op");
+const numbers = document.querySelectorAll(".numberBtn");
+const Operator = document.querySelectorAll(".operation");
 const outputBox = document.querySelector(".output");
 const clear = document.querySelector(".allClear");
 const back = document.querySelector(".backspace");
 const Plus = document.querySelector(".plusSign");
 const sum = document.querySelector(".equals");
-// const first = document.querySelector(".first");
-// const second = document.querySelector(".second");
-const choice = document.querySelector(".choice-display")
-
-
-
-const input = document.querySelector(".numberInput");
-const para = document.querySelector("p");
-
+const choice = document.querySelector(".choice-display");
+const firstOperand = document.querySelector(".firstOperand");
+const secondOperand = document.querySelector(".secondOperand");
 
 
 
@@ -28,7 +22,7 @@ const subtract = (num1, num2) => {
     return num1 - num2;
 };
 
-const times = (num1, num2) => {
+const multiply = (num1, num2) => {
     return num1 * num2;
 };
 
@@ -36,64 +30,97 @@ const divide = (num1, num2) => {
     return num1 / num2;
 };
 
-const percent = (num1, num2) => {
+const percentageOf = (num1, num2) => {
     return (num1 / num2) *100;
 };
 
-//Switch statment for operators
-let first = 0;
-let second = 0;
-let operators = "";
 
-function firstNum(firstNumber) {
-   let firstValue = parseFloat(firstNumber.target.value);
-    first = firstValue;
-    outputBox.textContent = first;
-    return first;
+let currentNumber = "";
+let lastNumber = "";
+let operator = "";
+
+
+let operators = {
+    plus: "+",
+    minus: "-",
+    times: "x",
+    division: "/",
+    percent: "%",
+    equals: "=",
 }
 
-function secondNum(secondNumber) {
-   let secondValue = parseFloat(secondNumber.target.value);
-    second = secondValue;
-    outputBox.textContent = second;
-    outputBox.style.colot = "red"
-    return second;
-}
+function operate(firstNumber, secondNumber, op) {
+    let num1 = currentNumber
+    let num2 = lastNumber
+    let operations = operator
+    op = operations
+    firstNumber = num1
+    secondNumber = num2
 
-function opSign(sign) {
-    let opValue = sign.target.value;
-    operators = opValue;
-    outputBox.textContent = operators;
-    outputBox.style.color = "white"
-    return operators;
-    
-}
+    if (op === operators.plus) {
+       return add(firstNumber, secondNumber)
+    }
 
-function operation(firstOperand, secondOperand, op) {
- 
-}
+    else if (op === operators.minus) {
+        return  subtract(firstNumber, secondNumber)
+    }
+
+    else if (op === operators.times) {
+        return   multiply(firstNumber, secondNumber)
+    }
+
+    else if (op === operators.division) {
+        return  divide(firstNumber, secondNumber)
+    }
+
+    else if (op === operators.percent) {
+        return  percentageOf(firstNumber, secondNumber)
+    }
+};
 
 
 
-//Event for number buttons
-numbers.forEach((numberBtn) => {
-    numberBtn.addEventListener("click", firstNum);
-    console.log(first)
+
+Operator.forEach((btn) => {
+    btn.addEventListener("click", (ev) => {
+        let btnPress = ev.target.textContent;
+        operator = btnPress
+        outputBox.textContent = operator
+        
+        if (operator 
+                === "+" || operator
+                === "-" || operator
+                === "x" || operator
+                === "/" || operator
+                === "%") {
+                    operate()
+                }
+    })
 });
 
+numbers.forEach((button) => {
+    button.addEventListener("click", (events) => {
+        let numberPress = events.target.textContent;
+        outputBox.textContent = numberPress
 
-//Event for operator buttons
-Operator.forEach((opBtn) => {
-    opBtn.addEventListener("click", opSign);
-});
+        if (numberPress != undefined && operator === "") {
+            currentNumber = parseFloat(numberPress)
+        } 
+
+        else if (numberPress != undefined && operator != "") {
+            lastNumber = parseFloat(numberPress)
+           
+        }
+        console.log(currentNumber, lastNumber)
+    })
+})
+
+sum.addEventListener("click", () => {
+    let total =  operate(currentNumber, lastNumber, operator)
+    outputBox.textContent = total
+})
 
 
-
-
-
-
-
-//Math functions
 
 
 
