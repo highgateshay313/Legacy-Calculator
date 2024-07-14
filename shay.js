@@ -50,12 +50,13 @@ let operators = {
 }
 
 function operate(firstNumber, secondNumber, op) {
-    let num1 = currentNumber
-    let num2 = lastNumber
+    let num1 = parseFloat(currentNumber)
+    let num2 = parseFloat(lastNumber)
     let operations = operator
     op = operations
     firstNumber = num1
     secondNumber = num2
+    op = operations
 
     if (op === operators.plus) {
        return add(firstNumber, secondNumber)
@@ -80,7 +81,7 @@ function operate(firstNumber, secondNumber, op) {
 
 
 
-
+//Event for operator buttons
 Operator.forEach((btn) => {
     btn.addEventListener("click", (ev) => {
         let btnPress = ev.target.textContent;
@@ -98,27 +99,59 @@ Operator.forEach((btn) => {
     })
 });
 
+//Event for number buttons
 numbers.forEach((button) => {
     button.addEventListener("click", (events) => {
         let numberPress = events.target.textContent;
         outputBox.textContent = numberPress
 
         if (numberPress != undefined && operator === "") {
-            currentNumber = parseFloat(numberPress)
+            currentNumber += numberPress 
+            outputBox.textContent = currentNumber;
+            return currentNumber;
         } 
 
         else if (numberPress != undefined && operator != "") {
-            lastNumber = parseFloat(numberPress)
-           
+            lastNumber += numberPress
+            outputBox.textContent = lastNumber;
+            return lastNumber;
+        
         }
         console.log(currentNumber, lastNumber)
     })
 })
 
-sum.addEventListener("click", () => {
-    let total =  operate(currentNumber, lastNumber, operator)
-    outputBox.textContent = total
-})
+
+function grandTotal() {
+    let total = operate(currentNumber, lastNumber, operator);
+    outputBox.textContent = total;
+
+    if (outputBox.textContent == total) {
+        currentNumber = total
+        lastNumber = ""
+        return currentNumber + lastNumber;
+    }
+};
+
+
+
+function clearAll() {
+   outputBox.textContent = ""
+   currentNumber = ""
+   lastNumber = ""
+   operator = ""
+
+}
+
+sum.addEventListener("click", grandTotal);
+
+clear.addEventListener("click", clearAll)
+
+
+
+
+
+
 
 
 
