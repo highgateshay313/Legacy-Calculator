@@ -13,7 +13,7 @@ const firstOperand = document.querySelector(".firstOperand");
 const secondOperand = document.querySelector(".secondOperand");
 
 
-
+//Functions for all math operations
 const add = (num1, num2) => {
     return num1 + num2;
 };
@@ -34,12 +34,12 @@ const percentageOf = (num1, num2) => {
     return (num1 / num2) *100;
 };
 
-
+//Global variables for storing values selected
 let currentNumber = "";
 let lastNumber = "";
 let operator = "";
 
-
+//Object for all operators
 let operators = {
     plus: "+",
     minus: "-",
@@ -47,8 +47,9 @@ let operators = {
     division: "/",
     percent: "%",
     equals: "=",
-}
+};
 
+//Function for handling math operators
 function operate(firstNumber, secondNumber, op) {
     let num1 = parseFloat(currentNumber)
     let num2 = parseFloat(lastNumber)
@@ -78,8 +79,6 @@ function operate(firstNumber, secondNumber, op) {
         return  percentageOf(firstNumber, secondNumber)
     }
 };
-
-
 
 //Event for operator buttons
 Operator.forEach((btn) => {
@@ -119,9 +118,9 @@ numbers.forEach((button) => {
         }
         console.log(currentNumber, lastNumber)
     })
-})
+});
 
-
+//Function to add all values together
 function grandTotal() {
     let total = operate(currentNumber, lastNumber, operator);
     outputBox.textContent = total;
@@ -133,19 +132,20 @@ function grandTotal() {
     }
 };
 
-
-
+//Function to clear all values
 function clearAll() {
    outputBox.textContent = ""
    currentNumber = ""
    lastNumber = ""
    operator = ""
 
-}
+};
 
+//Event to handle equals button
 sum.addEventListener("click", grandTotal);
 
-clear.addEventListener("click", clearAll)
+//Event to handle all clear button
+clear.addEventListener("click", clearAll);
 
 
 
